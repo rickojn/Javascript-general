@@ -22,5 +22,5 @@ function toRemoveDuplicates (element,index,array) {
 
 
 
-
+//change 
 console.log('non duplicates2: ', nonDuplicates2)
