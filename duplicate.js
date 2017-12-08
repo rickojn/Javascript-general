@@ -9,10 +9,18 @@ nonDuplicates =  duplicates.filter(function (element,index,array) {
 
 console.log('non duplicates: ', nonDuplicates)
 
-nonDuplicates2 =  duplicates.filter(function (element,index,array) {
-    return array.findIndex(function(findElement){
+nonDuplicates2 =  duplicates.filter(toRemoveDuplicates)
+
+
+function toRemoveDuplicates (element,index,array) {
+    return array.findIndex(ofFirstElementThatMatchesCurrent) === index
+
+    function ofFirstElementThatMatchesCurrent(findElement){
         return findElement.line === element.line && findElement.state === element.state
-    }) === index
-})
+    }
+}
+
+
+
 
 console.log('non duplicates2: ', nonDuplicates2)
