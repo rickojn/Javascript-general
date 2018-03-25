@@ -7,39 +7,32 @@ let three = 0
 let gamesWonBySticking = 0
 let gamesWonBySwitching = 0
 
-for (let i = 0; i < 10000; i++)
+for (let i = 0; i < 1000; i++)
 {
-    let choice = 1
-    let choiceSwitch
-    console.log('choice is', choice)
+    let initialChoice = Math.floor((Math.random()*3) + 1)
+    let switchedChoice
+    console.log('choice is', initialChoice)
 
     winningDoorNumber = Math.floor((Math.random()*3) + 1)
     switch (winningDoorNumber){
         case 1:
-            one++
-            doorNumberMontyOpens = Math.floor((Math.random()*2) + 2)
-            if (doorNumberMontyOpens === 2){
-                choiceSwitch = 3
-            }
-            else{
-                choiceSwitch = 2
-            }
+            one++                            
             break
         case 2:
             two++
-            doorNumberMontyOpens = 3
-            choiceSwitch = 2
             break
         case 3:
             three++
-            doorNumberMontyOpens = 2
-            choiceSwitch = 3
             break
     }
+
+    doorNumberMontyOpens = getDoorNumberMontyOpens(initialChoice,winningDoorNumber)
+    switchedChoice = getSwitchedChoice(initialChoice,doorNumberMontyOpens)
+
     console.log('the car is behind door ', winningDoorNumber)
     console.log('Monty opens door number ', doorNumberMontyOpens)
 
-    if (winningDoorNumber === choice){
+    if (winningDoorNumber === initialChoice){
         console.log('WIN FOR STICKING!!!!!')
         gamesWonBySticking++
     }
@@ -47,7 +40,7 @@ for (let i = 0; i < 10000; i++)
         console.log('LOSE FOR STICKING!!!!')
     }
   
-    if (winningDoorNumber === choiceSwitch){
+    if (winningDoorNumber === switchedChoice){
         console.log('WIN FOR SWITCHINTG!!!!!')
         gamesWonBySwitching++
     }
@@ -67,3 +60,32 @@ console.log('number of twos: ', two)
 console.log('number of threes: ', three)
 console.log('games won by sticking: ',gamesWonBySticking)
 console.log('games won by switching: ',gamesWonBySwitching)
+
+function getDoorNumberMontyOpens(initialChoice,winningDoorNumber){
+    if (initialChoice != winningDoorNumber){
+        for (let j = 1; j <= 3; j++ ){
+            if (initialChoice != j && winningDoorNumber != j){
+                return j
+            }
+        }
+    }
+    else {
+        let doorNumbersMontyCanOpen = []
+        for (let j = 1; j <= 3; j++ ){
+            if (initialChoice != j && winningDoorNumber != j){
+                doorNumbersMontyCanOpen.push(j)
+            }            
+        }    
+        let montysChoice = Math.floor(Math.random() * 2)    
+        return doorNumbersMontyCanOpen[montysChoice]
+    }
+}
+
+function getSwitchedChoice(initialChoice,doorNumberMontyOpens){
+    for (let j = 1; j <= 3; j++){
+        if (j != initialChoice && j != doorNumberMontyOpens){
+            return j
+        }
+    }
+
+}
