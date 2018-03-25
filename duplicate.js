@@ -20,7 +20,20 @@ function toRemoveDuplicates (element,index,array) {
     }
 }
 
+nonDuplicates3 =  duplicates.filter(toRemoveDuplicates())
+
+function toRemoveDuplicates() {
+    return function(element,index,array){
+        return array.findIndex(ofFirstElementThatMatchesCurrent()) === index        
+    }
+}
+
+function ofFirstElementThatMatchesCurrent(){
+    return function(findElement){
+        return findElement.line === element.line && findElement.state === element.state
+    }
+}
 
 
 //change 
-console.log('non duplicates2: ', nonDuplicates2)
+console.log('non duplicates3: ', nonDuplicates3)
