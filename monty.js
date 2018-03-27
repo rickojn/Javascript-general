@@ -7,7 +7,7 @@ let three = 0
 let gamesWonBySticking = 0
 let gamesWonBySwitching = 0
 
-for (let i = 0; i < 10000; i++)
+for (let i = 0; i < 900; i++)
 {
     let choice = 1
     let choiceSwitch
@@ -27,13 +27,23 @@ for (let i = 0; i < 10000; i++)
             break
         case 2:
             two++
-            doorNumberMontyOpens = 3
-            choiceSwitch = 2
+            doorNumberMontyOpens = Math.floor((Math.random()*2) + 2)
+            if (doorNumberMontyOpens === 2){
+                choiceSwitch = 3
+            }
+            else{
+                choiceSwitch = 2
+            }
             break
         case 3:
             three++
-            doorNumberMontyOpens = 2
-            choiceSwitch = 3
+            doorNumberMontyOpens = Math.floor((Math.random()*2) + 2)
+            if (doorNumberMontyOpens === 2){
+                choiceSwitch = 3
+            }
+            else{
+                choiceSwitch = 2
+            }
             break
     }
     console.log('the car is behind door ', winningDoorNumber)
