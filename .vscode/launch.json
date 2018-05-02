@@ -9,7 +9,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/duplicate.js"
+            "program": "${workspaceFolder}/compareArrays.js"
         }
     ]
 }
