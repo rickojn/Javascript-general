@@ -15,32 +15,32 @@ let notInArray2 = []
 
 
 
-let currentIndexOfArray1 = 0
-let currentIndexOfArray2 = 0
+let IndexOfArray1Counter = 0
+let IndexOfArray2Counter = 0
 
-while (currentIndexOfArray1 < array1.length && currentIndexOfArray2 < array2.length){
-    if (array1[currentIndexOfArray1].toString() < array2[currentIndexOfArray2].toString() ){
-        notInArray2.push(array1[currentIndexOfArray1])
-        currentIndexOfArray1++
+while (IndexOfArray1Counter < array1.length && IndexOfArray2Counter < array2.length){
+    if (array1[IndexOfArray1Counter].toString() < array2[IndexOfArray2Counter].toString() ){
+        notInArray2.push(array1[IndexOfArray1Counter])
+        IndexOfArray1Counter++
     }
-    else if (array1[currentIndexOfArray1].toString() > array2[currentIndexOfArray2].toString()){
-        notInArray1.push(array2[currentIndexOfArray2])
-        currentIndexOfArray2++
+    else if (array1[IndexOfArray1Counter].toString() > array2[IndexOfArray2Counter].toString()){
+        notInArray1.push(array2[IndexOfArray2Counter])
+        IndexOfArray2Counter++
     }
     else {
-        currentIndexOfArray1++
-        currentIndexOfArray2++
+        IndexOfArray1Counter++
+        IndexOfArray2Counter++
     }
 }
 
 
-if (currentIndexOfArray1 !== array1.length){
-    for (let i = currentIndexOfArray1; i < array1.length; i++){
+if (IndexOfArray1Counter !== array1.length){
+    for (let i = IndexOfArray1Counter; i < array1.length; i++){
         notInArray2.push(array1[i])
     }
 }
-else if (currentIndexOfArray2 !== array2.length){
-    for (let i = currentIndexOfArray2; i < array2.length; i++){
+else if (IndexOfArray2Counter !== array2.length){
+    for (let i = IndexOfArray2Counter; i < array2.length; i++){
         notInArray1.push(array2[i])
     }
 }
