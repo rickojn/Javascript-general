@@ -3,13 +3,17 @@ function successor(i){
 }
 
 function add(a,b){
-    let sum = a;
-    let counter = 0;
-    while (counter !== b){
-        sum = successor(sum);
-        counter = successor(counter)
+    
+    if (b === 0){
+        return a;
     }
-    return sum;
+    else {
+        return successor(add(a,b-1));
+    }
+    
+    
+    
+    
 }
 
 console.log(add(5,6))
