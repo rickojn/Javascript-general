@@ -2,12 +2,23 @@ const waitFor = (time) => {
     return new Promise((resolve) => {
         setTimeout(() => {
             console.log("in timeout cb");
-            // console.timeEnd("promise2")
             resolve();
-        // },time)
         },2000)
     });
 };
+
+const waitFor2s = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("in timeout cb");
+            resolve();
+        },2000)
+    });
+};
+
+const getWaitfor2s = () =>{
+    return waitFor2s;
+}
 
 // waitFor(2000).then(() => {
 //     console.log('hello');
@@ -46,7 +57,8 @@ waitFor(2000)
     console.log("hello!");
 })
 // .then(() => {return waitFor(2000)})
-.then(waitFor)
+// .then(getWaitfor2s())
+.then(waitFor2s)
 .then( () => {
     console.log("hello again!");
     console.timeEnd("promise");   
